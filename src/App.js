@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
+import FactsPage from './containers/FactsPage'
 
 class App extends Component {
   render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1>Fact Factory</h1>
-        </header>
-      </div>
-    );
+    return <FactsPage />
   }
 }
 
