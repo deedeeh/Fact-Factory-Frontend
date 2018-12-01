@@ -6,16 +6,36 @@ import FactCollection from './FactCollection'
 
 class FactsPage extends Component {
     state = {
-        facts: []
+        categories: [],
+        catNum: 0,
+        factNum: 0
     }
 
     componentDidMount(){
         fetch('http://localhost:3000/api/v1/categories')
         .then(res => res.json())
         .then(res => this.setState({
-            facts: [...res]
-        }))
+            categories: [...res]
+        })
+        )
+        setInterval(() => { 
+            let rand = Math.round(Math.random()*(this.state.categories.length - 1));
+            this.setState({
+                catNum: rand
+            })
+         }, 5000)
+         setInterval(() => { 
+            let rand = Math.round(Math.random()*(this.state.categories.length - 1));
+            this.setState({
+                factNum: rand
+            })
+         }, 5000)
+        
+
     }
+
+    
+
 
     render() {
         return (
@@ -27,7 +47,9 @@ class FactsPage extends Component {
             <SearchBar />
             </Segment>
                 
-                {/* <FactCollection /> */}
+                <FactCollection categories={this.state.categories}
+                 catNum={this.state.catNum}
+                 factNum={this.state.factNum}  />
             </div>
         )
     }

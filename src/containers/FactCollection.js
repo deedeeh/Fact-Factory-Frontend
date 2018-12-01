@@ -1,20 +1,18 @@
-import React, { Fragment} from 'react'
+import React from 'react'
 import FactCard from '../components/FactCard'
-import {Grid, Card} from 'semantic-ui-react'
+import { Card } from 'semantic-ui-react'
 
-const FactCollection = (props) => {
+const FactCollection = ({categories, catNum, factNum}) => {
 
 
     return (
        
        
-        <Grid>
-            <Grid.Row columns={4}>
-                <Grid.Column>
-                <FactCard />
-                </Grid.Column>
-            </Grid.Row>
-        </Grid>
+       <Card.Group itemsPerRow={4}>
+           {categories.map(category => {
+               return <FactCard key={category.id} category={category} catNum={catNum} factNum={factNum} />
+           })}
+       </Card.Group>
        
       
     )
