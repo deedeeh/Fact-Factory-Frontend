@@ -7,8 +7,10 @@ import FactCollection from './FactCollection'
 class FactsPage extends Component {
     state = {
         categories: [],
+        facts: [],
         catNum: 0,
-        factNum: 0
+        factNum: 0,
+        searchTerm: ''
     }
 
     componentDidMount(){
@@ -18,6 +20,14 @@ class FactsPage extends Component {
             categories: [...res]
         })
         )
+
+        fetch('http://localhost:3000/api/v1/facts')
+        .then(res => res.json())
+        .then(res => this.setState({
+            facts: [...res]
+        })
+        )
+
         setInterval(() => { 
             let rand = Math.round(Math.random()*(this.state.categories.length - 1));
             this.setState({
@@ -25,13 +35,30 @@ class FactsPage extends Component {
             })
          }, 5000)
          setInterval(() => { 
-            let rand = Math.round(Math.random()*(this.state.categories.length - 1));
+            let rand = Math.round(Math.random()*(this.state.categories.length - 3));
             this.setState({
                 factNum: rand
             })
          }, 5000)
-        
+    }
 
+    handleChange = (e) => {
+        this.setState({
+            searchTerm: e.target.value
+        })
+    }
+
+    onlyUnique = (value, index, self) => { 
+        return self.indexOf(value) === index;
+    }
+
+    filterFacts = () => {
+        if(!this.state.searchTerm){
+         
+        }
+        else {
+            return this.state.categories
+        }
     }
 
     

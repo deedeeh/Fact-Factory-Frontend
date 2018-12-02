@@ -8,7 +8,7 @@ class SearchBar extends Component {
 
     render(){
         return (
-            <Input focus placeholder='Search...' />
+            <Input onChange={(e) => console.log(e.target.value)} focus placeholder='Search...' />
         )
     }
 
