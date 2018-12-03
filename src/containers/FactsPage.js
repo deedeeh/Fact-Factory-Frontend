@@ -48,7 +48,8 @@ class FactsPage extends Component {
         this.setState({
             searchTerm: e.target.querySelector("input").value
         })
-        console.log(this.filterFacts())
+        
+        e.target.querySelector("input").value = ''
     }
 
    
