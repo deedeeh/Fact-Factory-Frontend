@@ -3,6 +3,7 @@ import { Header, Segment } from 'semantic-ui-react'
 import SearchBar from './SearchBar'
 import Api from '../API'
 import CategoryCollection from './CategoryCollection'
+import FactCollection from './FactCollection'
 
 class FactsPage extends Component {
     state = {
@@ -56,22 +57,22 @@ class FactsPage extends Component {
         return facts
     }
 
-    categoriesFromFacts = facts => {
-        return facts.reduce((cats, fact) => {
-            if (cats.includes(fact.category_id)) return cats
+    // categoriesFromFacts = facts => {
+    //     return facts.reduce((cats, fact) => {
+    //         if (cats.includes(fact.category_id)) return cats
 
-            cats.push(fact.category_id)
-            return cats
-        }, [])
-            .map(cat_id => this.state.categories.find(cat => cat.id === cat_id))
-            .filter(c => !!c)
-    }
+    //         cats.push(fact.category_id)
+    //         return cats
+    //     }, [])
+    //         .map(cat_id => this.state.categories.find(cat => cat.id === cat_id))
+    //         .filter(c => !!c)
+    // }
 
 
     render() {
         const filteredFacts = this.filterFacts()
-        const categories = this.categoriesFromFacts(filteredFacts)
-        console.log(filteredFacts, categories)
+        // const categories = this.categoriesFromFacts(filteredFacts)
+        // console.log(filteredFacts, categories)
         return (
             <div className="App">
             <Segment>
@@ -80,14 +81,18 @@ class FactsPage extends Component {
             </Header>
             <SearchBar handleChange={this.handleChange} />
             </Segment>
-                
-                <CategoryCollection categories={this.categoriesFromFacts(filteredFacts)}
+                {this.state.searchTerm 
+                ? <FactCollection filteredFacts={filteredFacts}/>
+                : <CategoryCollection categories={this.state.categories}
                  catNum={this.state.catNum}
                  factNum={this.state.factNum}
                   />
+                }
             </div>
         )
     }
 }
+
+// categoriesFromFacts(filteredFacts)
 
 export default FactsPage;

@@ -1,8 +1,9 @@
 import React from 'react'
+import { Card } from 'semantic-ui-react'
 
-const FactCard = () => {
+const FactCard = ({ fact }) => {
     return (
-        <h1>hello</h1>
+        <Card className='fact-card' content={fact.content}   />
     )
 }
 
