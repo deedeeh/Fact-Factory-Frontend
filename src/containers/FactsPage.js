@@ -44,8 +44,9 @@ class FactsPage extends Component {
     }
 
     handleChange = (e) => {
+        e.preventDefault()
         this.setState({
-            searchTerm: e.target.value
+            searchTerm: e.target.querySelector("input").value
         })
         console.log(this.filterFacts())
     }

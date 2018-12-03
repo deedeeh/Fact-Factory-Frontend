@@ -1,15 +1,15 @@
 import React, { Component } from 'react'
-import { Input } from 'semantic-ui-react'
+import { Form, Input, Button } from 'semantic-ui-react'
 
 class SearchBar extends Component {
-    state = {
-        searchTerm: ''
-    }
 
     render(){
         const {handleChange} = this.props
         return (
-            <Input onChange={(e) => handleChange(e)} focus placeholder='Search...' />
+            <Form onSubmit={(e) => handleChange(e)}>
+                <Input focus placeholder='Search...' />
+                <Button type='submit' color='teal'>Submit</Button>
+            </Form>
         )
     }
 
