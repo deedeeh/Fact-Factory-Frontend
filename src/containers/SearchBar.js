@@ -7,8 +7,9 @@ class SearchBar extends Component {
     }
 
     render(){
+        const {handleChange} = this.props
         return (
-            <Input onChange={(e) => console.log(e.target.value)} focus placeholder='Search...' />
+            <Input onChange={(e) => handleChange(e)} focus placeholder='Search...' />
         )
     }
 

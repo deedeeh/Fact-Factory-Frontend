@@ -2,7 +2,7 @@ import React from 'react'
 import FactCard from '../components/FactCard'
 import { Card } from 'semantic-ui-react'
 
-const FactCollection = ({categories, catNum, factNum}) => {
+const FactCollection = () => {
 
 
     return (

@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 import { Header, Segment } from 'semantic-ui-react'
 import SearchBar from './SearchBar'
 import Api from '../API'
-import FactCollection from './FactCollection'
+import CategoryCollection from './CategoryCollection'
 
 class FactsPage extends Component {
     state = {
@@ -46,37 +46,45 @@ class FactsPage extends Component {
         this.setState({
             searchTerm: e.target.value
         })
+        console.log(this.filterFacts())
     }
 
-    onlyUnique = (value, index, self) => { 
-        return self.indexOf(value) === index;
-    }
+   
 
     filterFacts = () => {
-        if(!this.state.searchTerm){
-         
-        }
-        else {
-            return this.state.categories
-        }
+        let facts = this.state.facts.filter(fact => fact.content.includes(this.state.searchTerm))
+        return facts
     }
 
-    
+    categoriesFromFacts = facts => {
+        return facts.reduce((cats, fact) => {
+            if (cats.includes(fact.category_id)) return cats
+
+            cats.push(fact.category_id)
+            return cats
+        }, [])
+            .map(cat_id => this.state.categories.find(cat => cat.id === cat_id))
+            .filter(c => !!c)
+    }
 
 
     render() {
+        const filteredFacts = this.filterFacts()
+        const categories = this.categoriesFromFacts(filteredFacts)
+        console.log(filteredFacts, categories)
         return (
             <div className="App">
             <Segment>
             <Header as='h3' color='teal' textAlign='center'>
             Fact Factory
             </Header>
-            <SearchBar />
+            <SearchBar handleChange={this.handleChange} />
             </Segment>
                 
-                <FactCollection categories={this.state.categories}
+                <CategoryCollection categories={this.categoriesFromFacts(filteredFacts)}
                  catNum={this.state.catNum}
-                 factNum={this.state.factNum}  />
+                 factNum={this.state.factNum}
+                  />
             </div>
         )
     }

@@ -1,16 +1,9 @@
 import React from 'react'
-import {Card} from 'semantic-ui-react'
 
-const FactCard = ({category, catNum, factNum}) => {
-
-    let display = category.id !== catNum? category.img_url : null
-    let content = category.id === catNum? category.facts[factNum].content : null
-    
-
+const FactCard = () => {
     return (
-        <Card color='teal' image={display} content={content}   />
+        <h1>hello</h1>
     )
-
 }
 
 export default FactCard;
