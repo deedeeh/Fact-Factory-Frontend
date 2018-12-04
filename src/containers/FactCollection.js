@@ -2,7 +2,7 @@ import React from 'react'
 import FactCard from '../components/FactCard'
 import { Card } from 'semantic-ui-react'
 
-const FactCollection = ({ filteredFacts }) => {
+const FactCollection = ({ filteredFacts, handleClick, categories }) => {
 
 
     return (
@@ -10,7 +10,7 @@ const FactCollection = ({ filteredFacts }) => {
        
        <Card.Group itemsPerRow={4}>
            {filteredFacts.map(fact => {
-               return <FactCard key={fact.id} fact={fact} />
+               return <FactCard key={fact.id} fact={fact} handleClick={handleClick} categories={categories} />
            })}
        </Card.Group>
        

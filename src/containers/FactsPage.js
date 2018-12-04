@@ -55,7 +55,7 @@ class FactsPage extends Component {
    
 
     filterFacts = () => {
-        let facts = this.state.facts.filter(fact => fact.content.includes(this.state.searchTerm))
+        let facts = this.state.facts.filter(fact => fact.content.toLowerCase().includes(this.state.searchTerm.toLowerCase()))
         return facts
     }
 
@@ -70,6 +70,33 @@ class FactsPage extends Component {
     //         .filter(c => !!c)
     // }
 
+    updateLikes = (fact) => {
+        fetch(`http://localhost:3000/api/v1/facts/${fact.id}`, {
+            method: 'PATCH',
+            headers: {
+                'Content-Type': 'application/json'
+            },
+            body: JSON.stringify({likes: fact.likes})
+        }).then(resp => resp.json())
+    }
+
+    handleClick = (likeFact) => {
+        let newFacts = [...this.state.facts].map(fact => {
+            if(fact.id === likeFact.id && !fact.liked){
+                fact.likes +=1
+                fact.liked = true
+                this.updateLikes(fact)
+                return fact
+            }
+            else {
+                return fact
+            }
+        })
+        this.setState({
+            facts: newFacts
+        })
+        
+    }
 
     render() {
         const filteredFacts = this.filterFacts()
@@ -84,7 +111,10 @@ class FactsPage extends Component {
             <SearchBar handleChange={this.handleChange} />
             </Segment>
                 {this.state.searchTerm 
-                ? <FactCollection filteredFacts={filteredFacts}/>
+                ? <FactCollection filteredFacts={filteredFacts}
+                 handleClick={this.handleClick}
+                 categories={this.state.categories}
+                 />
                 : <CategoryCollection categories={this.state.categories}
                  catNum={this.state.catNum}
                  factNum={this.state.factNum}
