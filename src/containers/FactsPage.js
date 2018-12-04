@@ -104,12 +104,10 @@ class FactsPage extends Component {
         // console.log(filteredFacts, categories)
         return (
             <div className="App">
-            <Segment>
-            <Header as='h3' color='teal' textAlign='center'>
-            Fact Factory
-            </Header>
-            <SearchBar handleChange={this.handleChange} />
-            </Segment>
+            <div className='header'>
+                <h1 className='header-text'>Fact Factory</h1>
+                <SearchBar style={'padding-right= 2em'} handleChange={this.handleChange} />
+            </div>
                 {this.state.searchTerm 
                 ? <FactCollection filteredFacts={filteredFacts}
                  handleClick={this.handleClick}
@@ -128,3 +126,4 @@ class FactsPage extends Component {
 // categoriesFromFacts(filteredFacts)
 
 export default FactsPage;
+

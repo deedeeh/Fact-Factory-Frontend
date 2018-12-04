@@ -13,6 +13,23 @@ code {
     monospace;
 }
 
+.header {
+  background: rgb(54, 53, 53);
+}
+
+.header-text {
+  padding-top: 0.7em;
+  text-align: center;
+  color: white;
+}
+
+.ui.form {
+  display: flex;
+  justify-content: center;
+  padding-bottom: 1em;
+  margin: 0;
+}
+
 .card_list {
   display: flex;
   flex-wrap: wrap;
@@ -22,6 +39,7 @@ code {
 .card {
   width: calc(100% / 6);
   overflow: hidden;
+  position: relative;
 }
 
 .image_wrapper {
@@ -40,6 +58,24 @@ code {
   transform: translate(-50%, -50%);
 }
 
+.descripton_wrapper {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: 0;
+  left: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1em;
+}
+
 /* .card-text {
   padding: 2em; 
 } */
+
+
+/* <Segment className='header'>
+            <Header as='h3' background='black' color='teal' textAlign='center'>
+            Fact Factory
+            </Header> */

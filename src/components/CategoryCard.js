@@ -11,7 +11,9 @@ const CategoryCard = ({category, catNum, factNum}) => {
         <div className="card">
             <div className="image_wrapper">
                 <img src={display}/>
-                <p className='card-text'>{content}</p>
+            </div>
+            <div className="descripton_wrapper">
+                <h4 className='card_text'>{content}</h4>
             </div>
         </div>
     )
