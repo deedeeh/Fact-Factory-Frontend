@@ -13,7 +13,7 @@ code {
     monospace;
 }
 
-.header {
+.main_header {
   background: rgb(54, 53, 53);
 }
 
@@ -70,12 +70,18 @@ code {
   padding: 1em;
 }
 
-/* .card-text {
-  padding: 2em; 
-} */
+.ui.six.cards {
+  margin: 1em;
+}
+
+.content {
+  min-height: 150px;
+  max-height: 200px;
+}
 
 
 /* <Segment className='header'>
             <Header as='h3' background='black' color='teal' textAlign='center'>
             Fact Factory
             </Header> */
+

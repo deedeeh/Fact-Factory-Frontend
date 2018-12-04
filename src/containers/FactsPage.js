@@ -104,7 +104,7 @@ class FactsPage extends Component {
         // console.log(filteredFacts, categories)
         return (
             <div className="App">
-            <div className='header'>
+            <div className='main_header'>
                 <h1 className='header-text'>Fact Factory</h1>
                 <SearchBar style={'padding-right= 2em'} handleChange={this.handleChange} />
             </div>
