@@ -8,11 +8,11 @@ const CategoryCollection = ({categories, catNum, factNum}) => {
     return (
        
        
-       <Card.Group itemsPerRow={4}>
+       <div className="card_list">
            {categories.map(category => {
                return <CategoryCard key={category.id} category={category} catNum={catNum} factNum={factNum} />
            })}
-       </Card.Group>
+       </div>
        
       
     )

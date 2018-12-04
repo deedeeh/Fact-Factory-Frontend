@@ -8,7 +8,7 @@ const FactCollection = ({ filteredFacts, handleClick, categories }) => {
     return (
        
        
-       <Card.Group itemsPerRow={4}>
+       <Card.Group itemsPerRow={6}>
            {filteredFacts.map(fact => {
                return <FactCard key={fact.id} fact={fact} handleClick={handleClick} categories={categories} />
            })}
