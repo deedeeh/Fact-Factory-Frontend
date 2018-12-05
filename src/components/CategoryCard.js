@@ -7,14 +7,16 @@ const CategoryCard = ({category, catNum, factNum}) => {
 
     let fliped = category.id === catNum ? 'fliped' : ''
     
-{/* <Card color='teal' image={display} content={content}   /> */}
     return (
         <div className={`card ${fliped}`}>
             <div className="image_wrapper">
                 <img src={category.img_url}/>
+                <div className='category_text'>
+                    {category.name}
+                </div>
             </div>
             <div className="descripton_wrapper">
-                <h4 className='card_text'>{category.facts[factNum].content}</h4>
+                <h1 className='card_text'>{category.facts[factNum].content}</h1>
             </div>
         </div>
     )

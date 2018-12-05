@@ -1,6 +1,5 @@
 import React from 'react'
 import CategoryCard from '../components/CategoryCard'
-import { Card } from 'semantic-ui-react'
 
 const CategoryCollection = ({categories, catNum, factNum}) => {
 

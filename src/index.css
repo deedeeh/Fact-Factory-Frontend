@@ -13,8 +13,17 @@ code {
     monospace;
 }
 
-.header {
+.main_header {
   background: rgb(54, 53, 53);
+}
+
+.logo {
+  color: white;
+  font-size: 1.4em;
+}
+
+.logo:hover {
+  color: rgb(0, 172, 163)
 }
 
 .header-text {
@@ -52,6 +61,11 @@ code {
   padding-bottom: 100%;
   overflow: hidden;
   position: relative;
+  text-align: center;
+}
+
+.card.fliped .image_wrapper {
+  display: none;
 }
 
 .card.fliped .image_wrapper {
@@ -67,6 +81,16 @@ code {
   transform: translate(-50%, -50%);
 }
 
+.category_text {
+  position: absolute;
+  bottom: 25px;
+  left: 18px;
+  font-family: 'Gudea', sans-serif;
+  font-size: 3em;
+  color: rgba(47, 46, 46, .7);
+  font-weight: bold;
+}
+
 .descripton_wrapper {
   transition: .3s;
   position: absolute;
@@ -74,25 +98,31 @@ code {
   width: 100%;
   top: 0;
   left: 0;
-  display: flex;
+  /* display: flex; */
   justify-content: center;
   align-items: center;
   padding: 1em;
   display: none;
+  transition: .3s;
 }
 
 .card.fliped .descripton_wrapper {
-  display: block;
+  display: flex;
   transform: rotateY(180deg);
 }
 
+.ui.six.cards {
+  margin: 1em;
+}
 
-/* .card-text {
-  padding: 2em; 
-} */
+.content {
+  min-height: 150px;
+  max-height: 200px;
+}
 
 
 /* <Segment className='header'>
             <Header as='h3' background='black' color='teal' textAlign='center'>
             Fact Factory
             </Header> */
+

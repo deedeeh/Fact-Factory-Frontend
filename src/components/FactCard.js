@@ -25,7 +25,7 @@ const FactCard = ({ fact,handleClick, categories }) => {
     extra = fact.liked? filledExtra : extra
     return (
         
-
+        
         <Card 
             header={getCategoryName()}
             description={fact.content}
