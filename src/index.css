@@ -40,6 +40,11 @@ code {
   width: calc(100% / 6);
   overflow: hidden;
   position: relative;
+  transition: .3s;
+}
+
+.card.fliped {
+  transform: rotateY(180deg);
 }
 
 .image_wrapper {
@@ -47,6 +52,10 @@ code {
   padding-bottom: 100%;
   overflow: hidden;
   position: relative;
+}
+
+.card.fliped .image_wrapper {
+  display: none;
 }
 
 .image_wrapper img {
@@ -59,6 +68,7 @@ code {
 }
 
 .descripton_wrapper {
+  transition: .3s;
   position: absolute;
   height: 100%;
   width: 100%;
@@ -68,7 +78,14 @@ code {
   justify-content: center;
   align-items: center;
   padding: 1em;
+  display: none;
 }
+
+.card.fliped .descripton_wrapper {
+  display: block;
+  transform: rotateY(180deg);
+}
+
 
 /* .card-text {
   padding: 2em; 
