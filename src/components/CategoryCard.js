@@ -5,21 +5,19 @@ const CategoryCard = ({category, catNum, factNum}) => {
 
     let display = category.id !== catNum? category.img_url : null
     let content = category.id === catNum? category.facts[factNum].content : null
+    let fliped = category.id === catNum ? 'fliped' : ''
     
-{/* <Card color='teal' image={display} content={content}   /> */}
     return (
-        <div className="card flip_card">
-            <div className='flip_card_inner'>
-                <div className="image_wrapper flip_card_front">
-                    <img src={display}/>
+        <div className={`card ${fliped}`}>
+                <div className="image_wrapper">
+                    <img src={category.img_url}/>
                     <div className='category_text'>
-                        {display ? category.name : null}
+                        {category.name}
                     </div>
                 </div>
-                <div className="descripton_wrapper flip_card_back">
-                    <h1 className='card_text'>{content}</h1>
+                <div className="descripton_wrapper">
+                    <h1 className='card_text'>{category.facts[factNum].content}</h1>
                 </div>
-            </div>
         </div>
     )
 
