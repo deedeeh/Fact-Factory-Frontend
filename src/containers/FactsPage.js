@@ -82,7 +82,7 @@ class FactsPage extends Component {
 
     handleClick = (likeFact) => {
         let newFacts = [...this.state.facts].map(fact => {
-            if(fact.id === likeFact.id && !fact.liked){
+            if(fact.id === likeFact.id && fact.likes < 50){
                 fact.likes +=1
                 fact.liked = true
                 this.updateLikes(fact)
@@ -105,8 +105,8 @@ class FactsPage extends Component {
         return (
             <div className="App">
             <div className='main_header'>
-                <h1 className='header-text'>Fact Factory</h1>
-                <SearchBar style={'padding-right= 2em'} handleChange={this.handleChange} />
+                <h1 className='header-text'><a className='logo' href='/'>Fact Factory</a></h1>
+                <SearchBar handleChange={this.handleChange} />
             </div>
                 {this.state.searchTerm 
                 ? <FactCollection filteredFacts={filteredFacts}

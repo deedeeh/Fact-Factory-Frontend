@@ -17,6 +17,15 @@ code {
   background: rgb(54, 53, 53);
 }
 
+.logo {
+  color: white;
+  font-size: 1.4em;
+}
+
+.logo:hover {
+  color: rgb(0, 172, 163)
+}
+
 .header-text {
   padding-top: 0.7em;
   text-align: center;
@@ -47,6 +56,7 @@ code {
   padding-bottom: 100%;
   overflow: hidden;
   position: relative;
+  text-align: center;
 }
 
 .image_wrapper img {
@@ -56,6 +66,16 @@ code {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
+}
+
+.category_text {
+  position: absolute;
+  bottom: 25px;
+  left: 18px;
+  font-family: 'Gudea', sans-serif;
+  font-size: 3em;
+  color: rgba(47, 46, 46, .7);
+  font-weight: bold;
 }
 
 .descripton_wrapper {
