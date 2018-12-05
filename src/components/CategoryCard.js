@@ -8,13 +8,17 @@ const CategoryCard = ({category, catNum, factNum}) => {
     
 {/* <Card color='teal' image={display} content={content}   /> */}
     return (
-        <div className="card">
-            <div className="image_wrapper">
-                <img src={display}/>
-                <div className='category_text'>{display ? category.name : null}</div>
-            </div>
-            <div className="descripton_wrapper">
-                <h1 className='card_text'>{content}</h1>
+        <div className="card flip_card">
+            <div className='flip_card_inner'>
+                <div className="image_wrapper flip_card_front">
+                    <img src={display}/>
+                    <div className='category_text'>
+                        {display ? category.name : null}
+                    </div>
+                </div>
+                <div className="descripton_wrapper flip_card_back">
+                    <h1 className='card_text'>{content}</h1>
+                </div>
             </div>
         </div>
     )
